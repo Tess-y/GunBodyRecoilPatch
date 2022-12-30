@@ -14,7 +14,7 @@ namespace GunBodyRecoilPatch {
     public class Main: BaseUnityPlugin {
         private const string ModId = "Root.Gun.bodyRecoil.Patch";
         private const string ModName = "GunBodyRecoilPatch";
-        public const string Version = "0.0.1";
+        public const string Version = "0.0.2";
         public static Main instance { get; private set; }
 
         void Awake() {
@@ -29,13 +29,13 @@ namespace GunBodyRecoilPatch {
     [HarmonyPatch(typeof(Gun), "Start")]
     public class PatchGunStart {
         public static void Postfix(Gun __instance) {
-            __instance.bodyRecoil=1;
+            __instance.bodyRecoil=0;
         }
     }
     [HarmonyPatch(typeof(Gun), "ResetStats")]
     public class PatchGunReset {
         public static void Postfix(Gun __instance) {
-            __instance.bodyRecoil=1;
+            __instance.bodyRecoil=0;
         }
     }
     [HarmonyPatch(typeof(Gun), "DoAttack")]
